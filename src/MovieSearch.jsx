@@ -37,7 +37,7 @@ const MovieSearch = () => {
       try {
   
         // TODO: fix plaintext
-        let url = `http://www.omdbapi.com/?s=${queryToFetch}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`;
+        let url = `https://www.omdbapi.com/?s=${queryToFetch}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`;
   
         if (yearToFetch.trim()) {
           url +=`&y=${yearToFetch}`;
