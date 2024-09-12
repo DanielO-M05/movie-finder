@@ -14,7 +14,7 @@ const ShowMore = () => {
             try {
     
                 // TODO: fix plaintext
-                const url = `http://www.omdbapi.com/?i=${id}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`;
+                const url = `https://www.omdbapi.com/?i=${id}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`;
         
                 console.log(url); // TODO: delete this
         
