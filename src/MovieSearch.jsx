@@ -35,8 +35,7 @@ const MovieSearch = () => {
       setLoading(true);
 
       try {
-  
-        // TODO: fix plaintext
+
         let url = `https://www.omdbapi.com/?s=${queryToFetch}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`;
   
         if (yearToFetch.trim()) {
@@ -48,11 +47,9 @@ const MovieSearch = () => {
         }
 
         setPage(pageToFetch) // Line added bc this will render soon
-  
-        //console.log(url); // TODO: delete this
-  
+    
         const response = await axios.get(url);
-        console.log(response); // For debugging
+
 
         if (response.data.Response === "True") {
           setMovies(response.data.Search); // Set the list of movies
@@ -83,13 +80,10 @@ const MovieSearch = () => {
     
       // Navigate to the new URL with query parameters
       navigate(`/search?${params.toString()}`);
-      
-      //fetchMovies();
+
     };
   
     const handleNext = () => {
-      // These two lines are similar bc setPage does not rerender the page
-      //setPage(`${parseInt(page, 10) + 1}`);
 
       const pageToGo = parseInt(page, 10) + 1;
 
@@ -102,12 +96,10 @@ const MovieSearch = () => {
       // Navigate to the new URL with query parameters
       navigate(`/search?${params.toString()}`);
 
-      //fetchMovies(query, year, `${pageToGo}`);
       jumpToTop();
     }
   
     const handlePrev = () => {
-      //setPage(`${parseInt(page, 10) - 1}`);
       let pageToGo = parseInt(page, 10) - 1
 
       const params = new URLSearchParams();
@@ -119,12 +111,10 @@ const MovieSearch = () => {
       // Navigate to the new URL with query parameters
       navigate(`/search?${params.toString()}`);
 
-      //fetchMovies(query, year, `${pageToGo}`);
       jumpToTop();
     }
   
     const handleFirstPage = () => {
-      //setPage("1");
 
       const params = new URLSearchParams();
       
@@ -135,13 +125,11 @@ const MovieSearch = () => {
       // Navigate to the new URL with query parameters
       navigate(`/search?${params.toString()}`);
 
-      //fetchMovies();
       jumpToTop();
     }
   
     const handleLastPage = () => {
       const lastPage = Math.ceil(parseInt(results, 10) / 10);
-      //setPage(lastPage.toString());
 
       const params = new URLSearchParams();
       
@@ -152,8 +140,7 @@ const MovieSearch = () => {
       // Navigate to the new URL with query parameters
       navigate(`/search?${params.toString()}`);
 
-
-      fetchMovies(query, year, lastPage.toString());
+      fetchMovies(query, year, lastPage.toString()); // Do I need this?
       jumpToTop();
     }
   
@@ -167,7 +154,7 @@ const MovieSearch = () => {
     const scrollToTop = () => {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth' // This makes the scroll smooth
+        behavior: 'smooth' 
       });
     };
   
