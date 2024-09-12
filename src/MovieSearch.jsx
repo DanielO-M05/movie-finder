@@ -28,7 +28,7 @@ const MovieSearch = () => {
         if (q) {
             fetchMovies(q, y, p);
         }
-    }, [location.search]); // prev was [q, y, p]
+    }, [location.search]); // previous was [q, y, p]
   
     const fetchMovies = async (queryToFetch = query, yearToFetch = year, pageToFetch = '1') => {
 
