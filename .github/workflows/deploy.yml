@@ -7,7 +7,7 @@ on:
       
 #Allow repo secrets
 env:
-  VITE_OPEN_AI_API_KEY: ${{ secrets.VITE_OPEN_AI_API_KEY }}
+  VITE_OMDB_API_KEY: ${{ secrets.VITE_OMDB_API_KEY }}
 
 jobs:
   build:
